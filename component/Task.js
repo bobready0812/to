@@ -18,7 +18,7 @@ function changeState () {
     return(
         <View style={isDone? styles.item2 : styles.item}>
             <View style={styles.itemLeft}>
-                <BouncyCheckbox size={25} fillColor="green" unfillColor="#FFFFFF" onPress={changeState} iconStyle={{borderColor: "green"}}></BouncyCheckbox>
+                <BouncyCheckbox size={25} fillColor="#8cc43c" unfillColor="#FFFFFF" onPress={changeState} iconStyle={{borderColor: "#8cc43c"}}></BouncyCheckbox>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
             <View style={styles.circular}></View>

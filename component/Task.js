@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const Task = (props) => {
+
+const [isDone, setIsDone] = useState(false);
+
+function changeState () {
+    if(!isDone) {
+        setIsDone(true);
+    } else {
+        setIsDone(false);
+    }
+}
+
+
     return(
-        <View style={styles.item}>
+        <View style={isDone? styles.item2 : styles.item}>
             <View style={styles.itemLeft}>
-                <View style={styles.square}></View>
+                <BouncyCheckbox size={25} fillColor="green" unfillColor="#FFFFFF" onPress={changeState} iconStyle={{borderColor: "green"}}></BouncyCheckbox>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
             <View style={styles.circular}></View>
@@ -16,6 +29,17 @@ const Task = (props) => {
 const styles = StyleSheet.create({
 item: {
     backgroundColor:'#fff',
+    padding:15,
+    borderRadius:10,
+   flexDirection:"row",
+   justifyContent:"space-between",
+   marginBottom: 20,
+   alignItems:"center",
+   
+},
+
+item2: {
+    backgroundColor:'#C1C1C1',
     padding:15,
     borderRadius:10,
    flexDirection:"row",
